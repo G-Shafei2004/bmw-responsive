@@ -1,0 +1,144 @@
+/* =========================================
+   BMW Explorer - Responsive Page
+   This file is loaded AFTER Bootstrap's CSS,
+   so these rules can override Bootstrap.
+   ========================================= */
+
+:root {
+  --bmw-blue: #0066b1;
+  --bmw-navy: #141a2b;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: var(--bmw-navy);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  color: white !important;
+}
+
+.hero {
+  background-color: var(--bmw-navy);
+  color: white;
+  padding: 100px 0 80px;
+}
+
+.hero h1 {
+  font-weight: 700;
+}
+
+.hero .btn-primary {
+  background-color: var(--bmw-blue);
+  border-color: var(--bmw-blue);
+}
+
+section {
+  padding: 60px 0;
+}
+
+.section-title {
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+
+/* =========================================
+   TASK 1 - Hand-coded responsive section
+   "Why Choose BMW" - features grid.
+   Custom CSS Grid + @media only.
+   NO Bootstrap classes used anywhere below.
+   Mobile-first: base = 1 column (phone).
+   ========================================= */
+
+.features-section {
+  background-color: #f5f6f8;
+}
+
+.features-heading {
+  font-size: 1.5rem;        /* smaller heading on phone */
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr;   /* 1 column by default = phone */
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.feature-card {
+  background: white;
+  border-radius: 8px;
+  padding: 28px 24px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+.feature-card .feature-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background-color: var(--bmw-blue);
+}
+
+.feature-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.feature-card p {
+  color: #666;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Breakpoint 1: tablet - 2 columns per row */
+@media (min-width: 600px) {
+  .features-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Breakpoint 2: laptop - 4 columns per row,
+   AND the heading grows + left-aligns
+   (the "something else changes too" requirement) */
+@media (min-width: 992px) {
+  .features-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .features-heading {
+    font-size: 2.25rem;
+    text-align: left;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+  }
+}
+
+
+/* =========================================
+   Small custom touches on top of Bootstrap
+   (allowed - this is still "your own CSS",
+   just not the Task 1 section)
+   ========================================= */
+
+.model-card img {
+  height: 180px;
+  object-fit: cover;
+}
+
+.phone-only-banner {
+  background-color: var(--bmw-blue);
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 0.9rem;
+}
